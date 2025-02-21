@@ -1,39 +1,48 @@
+Here's your updated **GitHub-optimized README** with **clear formatting, structured sections, and additional pipeline details**:  
 
 ---
 
 # 📊 Corporate Transcript Thematic Baskets  
 
-> **A pipeline to analyze corporate transcripts, detect thematic mentions, identify subthemes, and generate a stock basket based on company engagement.**  
+> **A complete pipeline to analyze corporate transcripts, detect thematic mentions, identify subthemes, predict context, and generate a stock basket based on company engagement.**  
 
-This project helps investors and researchers **track how companies discuss specific themes in earnings calls**. By analyzing transcript mentions, we can **quantify company engagement**, detect **emerging subthemes**, and **construct a stock basket** that reflects the most thematically engaged companies.  
+This project enables investors and researchers to **track how companies discuss specific themes in earnings calls**. By integrating **structured and unstructured data sources**, **LLM-powered keyword generation**, **context-aware NLP models**, and **dashboard visualizations**, the pipeline allows for **granular thematic analysis** of corporate transcripts.  
 
 ---
 
 ## 🚀 Features  
 
-✅ **Thematic Identification** – Input a broad theme (e.g., `"AI"`, `"Inflation"`, `"Reshoring"`) and detect its mentions in earnings transcripts.  
+✅ **PDF & FactSet Data Integration** – Scrape and process **earnings call transcripts** from PDFs, FactSet, and structured Excel datasets.  
 
-✅ **Subtheme Detection** – Identify **related subtopics** that emerge organically in corporate discussions.  
+✅ **Keyword Builder (LLM-powered)** – Generate **theme-specific keyword lists** automatically, enhancing transcript analysis.  
 
-✅ **Stock Basket Construction** – Generate a list of companies based on their engagement with the theme.  
+✅ **Keyword Finder & Contextual Modeling** – Predict whether a **keyword hit** is actually relevant to the theme.  
 
-✅ **Dynamic Analysis** – Track trends over time and across different industries.  
+✅ **Thematic Subtopic Classification** – Identify and categorize **subthemes** within corporate discussions.  
+
+✅ **Stock Basket Construction** – Build a **company-specific basket** based on theme engagement.  
+
+✅ **Dashboard with Interactive Filters** – Visualize **company mentions**, **subthemes**, and **contextual sentiment** in an interactive UI.  
 
 ---
 
 ## 🏗️ How It Works  
 
-📌 **Step 1: Input a Theme**  
-Specify a **theme keyword** to analyze (e.g., `"Cloud Computing"`, `"De-dollarization"`, `"Labor Costs"`).  
+### **📂 Data Ingestion**  
 
-📌 **Step 2: Extract Mentions**  
-The pipeline scans corporate transcripts to **count occurrences, identify trends, and extract key passages**.  
+1️⃣ **PDF & FactSet Scraping** – Extract earnings call transcripts from **FactSet** & PDFs.  
+2️⃣ **Excel Dataset Processing** – Integrate structured datasets for additional context.  
 
-📌 **Step 3: Detect Subthemes**  
-Common **subtopics** that emerge in discussions are detected and ranked based on their frequency.  
+### **🔍 Theme Detection & NLP Processing**  
 
-📌 **Step 4: Construct a Stock Basket**  
-Companies most engaged in the theme are included in a **custom thematic stock basket**, useful for investment screening.  
+3️⃣ **LLM-Powered Keyword Builder** – Generate theme-related **keywords dynamically**.  
+4️⃣ **Keyword Finder & Context Model** – Predict whether a hit **actually discusses the theme**.  
+5️⃣ **Surrounding Context Analysis** – Extract **supporting context** to validate the mention.  
+
+### **📊 Stock Basket & Dashboard**  
+
+6️⃣ **Stock Basket Generation** – Identify companies with **strong theme engagement**.  
+7️⃣ **Dashboard Visualization** – Filter by company & theme, showing **mentions and sentiment trends**.  
 
 ---
 
@@ -41,14 +50,18 @@ Companies most engaged in the theme are included in a **custom thematic stock ba
 
 ```
 📦 Corporate-Transcript-Thematic-Baskets
-├── 📁 data              # Raw transcript data and preprocessed outputs  
-├── 📁 notebooks         # Jupyter notebooks for exploration and testing  
-├── 📁 src              # Core pipeline scripts  
-│   ├── extract.py      # Extract mentions of a theme  
-│   ├── subthemes.py    # Identify subthemes within transcripts  
-│   ├── basket.py       # Generate stock basket based on company mentions  
-├── 📜 requirements.txt  # Dependencies  
-├── 📜 README.md         # Project documentation  
+├── 📁 data                # Raw transcript data & preprocessed structured data  
+├── 📁 notebooks           # Jupyter notebooks for exploration and testing  
+├── 📁 src                 # Core pipeline scripts  
+│   ├── extract.py        # Scrapes & extracts transcripts from FactSet & PDFs  
+│   ├── keyword_builder.py # Uses LLM to generate theme-specific keywords  
+│   ├── keyword_finder.py  # Identifies keyword matches & validates theme relevance  
+│   ├── context_model.py   # Detects surrounding context of a theme discussion  
+│   ├── subthemes.py       # Identifies subthemes within transcripts  
+│   ├── basket.py          # Generates a stock basket based on theme mentions  
+│   ├── dashboard.py       # Builds a Power BI or Streamlit dashboard for visualization  
+├── 📜 requirements.txt     # Dependencies  
+├── 📜 README.md            # Project documentation  
 ```
 
 ---
@@ -69,38 +82,53 @@ pip install -r requirements.txt
 
 Run the pipeline in sequential steps:  
 
-### 🔍 **Extract Theme Mentions**  
+### 1️⃣ **Scrape & Process Transcripts**  
 ```bash
-python src/extract.py --theme "AI"
+python src/extract.py --source "FactSet" --pdf_folder "data/pdfs/"
 ```
 
-### 🔎 **Identify Subthemes**  
+### 2️⃣ **Generate Keywords (LLM-Powered)**  
+```bash
+python src/keyword_builder.py --theme "AI"
+```
+
+### 3️⃣ **Identify Keyword Matches & Validate Context**  
+```bash
+python src/keyword_finder.py --theme "AI"
+```
+
+### 4️⃣ **Analyze Theme Context**  
+```bash
+python src/context_model.py --theme "AI"
+```
+
+### 5️⃣ **Identify Subthemes**  
 ```bash
 python src/subthemes.py --theme "AI"
 ```
 
-### 📊 **Generate Thematic Stock Basket**  
+### 6️⃣ **Generate Thematic Stock Basket**  
 ```bash
 python src/basket.py --theme "AI"
 ```
 
+### 7️⃣ **Launch the Interactive Dashboard**  
+```bash
+python src/dashboard.py
+```
+
 ---
 
-## 📈 Example Output (Theme: AI)
+## 📈 Example Output (Theme: AI)  
 
 ### 🔹 **Top 10 Companies Discussing the Theme**  
-| Rank | Company      | Mentions |
-|------|------------|----------|
-| 1    | Microsoft  | 142      |
-| 2    | Tesla      | 125      |
-| 3    | Nvidia     | 119      |
-| 4    | Alphabet   | 98       |
-| 5    | Meta       | 87       |
-| 6    | Amazon     | 74       |
-| 7    | IBM        | 63       |
-| 8    | Oracle     | 52       |
-| 9    | Salesforce | 47       |
-| 10   | Adobe      | 39       |
+| Rank | Company      | Mentions | Confidence |
+|------|------------|----------|------------|
+| 1    | Microsoft  | 142      | 95%        |
+| 2    | Tesla      | 125      | 92%        |
+| 3    | Nvidia     | 119      | 88%        |
+| 4    | Alphabet   | 98       | 85%        |
+| 5    | Meta       | 87       | 82%        |
 
 ### 🔹 **Key Subthemes & Frequency**  
 ```
@@ -123,12 +151,26 @@ AI Thematic Basket:
 
 ---
 
+## 📊 Dashboard Preview  
+
+The dashboard provides **real-time filtering by company & theme**:  
+
+- **Company-Specific View** – Select a company to see its **mentions & sentiment trends**.  
+- **Theme-Level Analysis** – Explore **subtheme frequencies & contextual insights**.  
+- **Historical Trends** – Track **quarterly engagement** with themes over time.  
+
+```bash
+python src/dashboard.py
+```
+
+---
+
 ## 🔮 Future Enhancements  
 
 🔜 **Multi-source Support** – Expand coverage beyond earnings transcripts.  
 🔜 **Sentiment Analysis** – Determine **positive/negative tone** behind mentions.  
 🔜 **Real-time Updates** – Automate data retrieval and basket adjustments.  
-🔜 **API Integration** – Connect with financial data sources for enhanced insights.  
+🔜 **API Integration** – Connect with financial APIs for enhanced insights.  
 
 ---
 
@@ -150,9 +192,9 @@ This project is licensed under the **MIT License** – free to use, modify, and 
 
 ---
 
-🚀 **Start analyzing corporate transcripts and build your own stock baskets today!** 🏆  
+🚀 **Start analyzing corporate transcripts and building dynamic stock baskets today!** 🏆  
 
 ---
 
-This version is **optimized for GitHub readability**, ensuring clear **headings, bullet points, code blocks, tables, and emojis** for an engaging and professional look. Let me know if you want any tweaks! 🚀
+This **README is optimized for GitHub**, featuring **structured sections, clear workflows, code examples, tables, and an interactive dashboard component**. Let me know if you'd like further refinements! 🚀
 
