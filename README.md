@@ -1,48 +1,47 @@
-Here's your updated **GitHub-optimized README** with **clear formatting, structured sections, and additional pipeline details**:  
-
----
 
 # 📊 Corporate Transcript Thematic Baskets  
 
-> **A complete pipeline to analyze corporate transcripts, detect thematic mentions, identify subthemes, predict context, and generate a stock basket based on company engagement.**  
+> **A complete pipeline to analyze corporate transcripts, detect thematic mentions, build charts, identify stock basket constiuents, identify subtopics, and identify sentiment.**  
 
 This project enables investors and researchers to **track how companies discuss specific themes in earnings calls**. By integrating **structured and unstructured data sources**, **LLM-powered keyword generation**, **context-aware NLP models**, and **dashboard visualizations**, the pipeline allows for **granular thematic analysis** of corporate transcripts.  
 
 ---
 
-## 🚀 Features  
+## 🚀 **Key Features**  
 
-✅ **PDF & FactSet Data Integration** – Scrape and process **earnings call transcripts** from PDFs, FactSet, and structured Excel datasets.  
+✅ **Thematic Mention Identification** – Scrape **corporate transcripts** for mentions of a particular theme. 
 
-✅ **Keyword Builder (LLM-powered)** – Generate **theme-specific keyword lists** automatically, enhancing transcript analysis.  
+✅ **Stock Basket Creation** – Build **custom stock baskets** based on company engagement with themes.  
 
-✅ **Keyword Finder & Contextual Modeling** – Predict whether a **keyword hit** is actually relevant to the theme.  
+✅ **Subtheme Breakdown** – Classify mentions into **detailed subthemes** for deeper insights.  
 
-✅ **Thematic Subtopic Classification** – Identify and categorize **subthemes** within corporate discussions.  
+✅ **Sentiment Analysis** – Determine whether mentions are **positive, negative, or neutral**.  
 
-✅ **Stock Basket Construction** – Build a **company-specific basket** based on theme engagement.  
+✅ **Thematic Trends & Charts** – Track **how themes evolve over time**, across sectors, and by company size.  
 
-✅ **Dashboard with Interactive Filters** – Visualize **company mentions**, **subthemes**, and **contextual sentiment** in an interactive UI.  
+✅ **Interactive Dashboard** – Filter by **company, theme, sentiment**, and more for flexible analysis.  
 
 ---
 
-## 🏗️ How It Works  
+## 🏗️ **How It Works**  
 
-### **📂 Data Ingestion**  
+### **📂 Step 1: Data Collection**  
+1️⃣ **Scrape Transcripts** – Extract **earnings call transcripts** from **FactSet** into PDF format.  
+2️⃣ **Convert to Structured Data** – Process PDFs into structured **Excel datasets** for analysis.  
 
-1️⃣ **PDF & FactSet Scraping** – Extract earnings call transcripts from **FactSet** & PDFs.  
-2️⃣ **Excel Dataset Processing** – Integrate structured datasets for additional context.  
+### **🔍 Step 2: Themematic Mention Detection**  
+3️⃣ **Find Theme Mentions** – Use a **keyword-based filter** to detect sentences related to key themes.  
+4️⃣ **Remove False Positives (LLM-powered)** – Ensure that keyword hits are **truly** relevant to the theme.  
+5️⃣ **Extract Context** – Identify surrounding sentences that provide **additional context** to theme mentions.  
 
-### **🔍 Theme Detection & NLP Processing**  
+### **🎯 Step 3: Thematic Analysis**
+6️⃣ **Classify Themes & Subthemes** – Organize mentions into **detailed subthemes**.  
+7️⃣ **Analyze Sentiment (LLM-powered)** – Determine whether mentions are **positive, negative, or neutral**.  
 
-3️⃣ **LLM-Powered Keyword Builder** – Generate theme-related **keywords dynamically**.  
-4️⃣ **Keyword Finder & Context Model** – Predict whether a hit **actually discusses the theme**.  
-5️⃣ **Surrounding Context Analysis** – Extract **supporting context** to validate the mention.  
-
-### **📊 Stock Basket & Dashboard**  
-
-6️⃣ **Stock Basket Generation** – Identify companies with **strong theme engagement**.  
-7️⃣ **Dashboard Visualization** – Filter by company & theme, showing **mentions and sentiment trends**.  
+### **📊 Step 4: Data Presentation & Visualization**  
+8️⃣ **Stock Basket Generation** – Identify companies with **high thematic engagement**.  
+9️⃣ **Trend & Chart Analysis** – Visualize **theme trends, sector engagement, and company size comparisons**.  
+🔟 **Interactive Dashboard** – Explore data with **filters for theme, sentiment, and companies**.  
 
 ---
 
@@ -195,6 +194,4 @@ This project is licensed under the **MIT License** – free to use, modify, and 
 🚀 **Start analyzing corporate transcripts and building dynamic stock baskets today!** 🏆  
 
 ---
-
-This **README is optimized for GitHub**, featuring **structured sections, clear workflows, code examples, tables, and an interactive dashboard component**. Let me know if you'd like further refinements! 🚀
 
