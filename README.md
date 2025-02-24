@@ -1,5 +1,5 @@
 
-# 📊 Corporate Transcript Thematic Baskets  
+# 📊 Corporate Transcript Thematic Analysis  
 
 > **A complete pipeline to analyze corporate transcripts, detect thematic mentions, build charts, identify stock basket constiuents, identify subtopics, and identify sentiment.**  
 
@@ -11,7 +11,9 @@ This project enables investors and researchers to **track how companies discuss 
 
 ✅ **Thematic Mention Identification** – Scrape **corporate transcripts** for mentions of a particular theme. 
 
-✅ **Stock Basket Creation** – Build **custom stock baskets** based on company engagement with themes.  
+✅ **Stock Basket Creation** – Build **custom stock baskets** based on company engagement with themes.
+   - 📌 **Constituent Selection** – Identify **which companies** should be included in the basket.  
+   - ⚖️ **Weighting Strategy** – Determine **how much weight** each company should have in the basket.  
 
 ✅ **Subtheme Breakdown** – Classify mentions into **detailed subthemes** for deeper insights.  
 
@@ -29,19 +31,20 @@ This project enables investors and researchers to **track how companies discuss 
 1️⃣ **Scrape Transcripts** – Extract **earnings call transcripts** from **FactSet** into PDF format.  
 2️⃣ **Convert to Structured Data** – Process PDFs into structured **Excel datasets** for analysis.  
 
-### **🔍 Step 2: Themematic Mention Detection**  
-3️⃣ **Find Theme Mentions** – Use a **keyword-based filter** to detect sentences related to key themes.  
-4️⃣ **Remove False Positives (LLM-powered)** – Ensure that keyword hits are **truly** relevant to the theme.  
-5️⃣ **Extract Context** – Identify surrounding sentences that provide **additional context** to theme mentions.  
+### **🔍 Step 2: Thematic Mention Detection**  
+3️⃣ **Generate Theme Vocabulary (LLM-powered)** – Automatically create a **list of relevant keywords** based on the user's theme input.  
+4️⃣ **Find Theme Mentions** – Use a **keyword-based filter** to detect sentences related to key themes.  
+5️⃣ **Remove False Positives (LLM-powered)** – Ensure that keyword hits are **truly** relevant to the theme.  
+6️⃣ **Extract Context** – Identify surrounding sentences that provide **additional context** to theme mentions.  
 
-### **🎯 Step 3: Thematic Analysis**
-6️⃣ **Classify Themes & Subthemes** – Organize mentions into **detailed subthemes**.  
-7️⃣ **Analyze Sentiment (LLM-powered)** – Determine whether mentions are **positive, negative, or neutral**.  
+### **🎯 Step 3: Thematic Analysis**  
+7️⃣ **Classify Themes & Subthemes (LLM-powered)** – Organize mentions into **detailed subthemes**.  
+8️⃣ **Analyze Sentiment (LLM-powered)** – Determine whether mentions are **positive, negative, or neutral**.  
 
 ### **📊 Step 4: Data Presentation & Visualization**  
-8️⃣ **Stock Basket Generation** – Identify companies with **high thematic engagement**.  
-9️⃣ **Trend & Chart Analysis** – Visualize **theme trends, sector engagement, and company size comparisons**.  
-🔟 **Interactive Dashboard** – Explore data with **filters for theme, sentiment, and companies**.  
+9️⃣ **Stock Basket Generation** – Identify companies with **high thematic engagement**.  
+🔟 **Trend & Chart Analysis** – Visualize **theme trends, sector engagement, and company size comparisons**.  
+1️⃣1️⃣ **Interactive Dashboard** – Explore data with **filters for theme, sentiment, and companies**.  
 
 ---
 
