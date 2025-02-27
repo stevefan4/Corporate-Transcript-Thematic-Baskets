@@ -32,7 +32,7 @@ This project enables investors and researchers to **track how companies discuss 
 2️⃣ **Convert to Structured Data** – Process PDFs into structured **Excel datasets** for analysis.  
 
 ### **🔍 Step 2: Thematic Mention Detection**  
-3️⃣ **Generate Theme Vocabulary (LLM-powered)** – Automatically create a **list of relevant keywords** based on the user's theme input.  
+3️⃣ **Generate Thematic Vocabulary (LLM-powered)** – Automatically create a **list of relevant keywords** based on the user's theme input.  
 4️⃣ **Find Theme Mentions** – Use a **keyword-based filter** to detect sentences related to key themes.  
 5️⃣ **Remove False Positives (LLM-powered)** – Ensure that keyword hits are **truly** relevant to the theme.  
 6️⃣ **Extract Context** – Identify surrounding sentences that provide **additional context** to theme mentions.  
