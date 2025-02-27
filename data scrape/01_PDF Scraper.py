@@ -6,9 +6,27 @@ Created on Wed Jan 10 12:07:46 2024
 @author: Steven.Fandozzi
 """
 
-# Background: Now that we have a dataset of PDFs, now we need to convert the unstructured text to a structured dataset
-# Output: xyz-Cal Transcript
-# Input: Current Year
+# Background: This script extracts earnings call transcripts from PDFs, cleans and structures the text, and exports it into an Excel file. 
+#             The goal is to convert unstructured PDF text into a usable dataset for further analysis.
+# How To Use:
+#    1. Ensure the required Python libraries (`numpy`, `pandas`, `PyPDF2`, `re`, `os`) are installed.
+#    2. Update the `year` variable to match the current year.
+#    3. Store transcript PDFs in the appropriate directory under `S:\Strategy Research\Transcripts\Data\Raw Factset PDF`.
+#    4. Run the script to extract and clean data, which will be saved as `RAW {year}-Cal TRANSCRIPT.xlsx`.
+# Input:
+#    1. PDF transcripts stored in `S:\Strategy Research\Transcripts\Data\Raw Factset PDF`.
+#    2. A list of tickers from `S:\Strategy Research\Transcripts\Additional\Tickers.xlsx`.
+# Output: An Excel file `RAW {year}-Cal TRANSCRIPT.xlsx` containing structured earnings transcripts.
+#    - Columns include:
+#        - `Ticker`: Stock ticker of the company
+#        - `Company Name`: Name of the company
+#        - `Event Type`: Type of event (e.g., Earnings Call)
+#        - `Date`: Date of the earnings call
+#        - `Transcript - Mgmt`: Management discussion section
+#        - `Transcript - QA`: Q&A session section
+#        - `Transcript - Mgmt p2`: Overflow management transcript (if applicable)
+#        - `Transcript - QA p2`: Overflow Q&A transcript (if applicable)
+
 
 #Import Libraries
 import numpy as np
@@ -17,24 +35,30 @@ from PyPDF2 import PdfReader
 import re
 import os
 
-#Set Year
+#Set Year and File Path
 year = "2024"
 export_file_path = rf'S:\Strategy Research\Transcripts\Data\Excel\RAW {year}-Cal TRANSCRIPT.xlsx'
 
 #%% Import Tickers
 
-# Base directory path
+# Load the list of tickers from an external Excel file
 base_directory = r'S:\Strategy Research\Transcripts'
 directory_path = os.path.join(base_directory, r"Additional\Tickers.xlsx")
 
-#Import Data
+# Read ticker list from Excel and convert it into a Python list
 ticker_list = pd.read_excel(directory_path)
 ticker_list = ticker_list.iloc[:, 0].tolist()
 
 #%% Helper Functions
 
-#Create Helper Function: Text Cleaner
+# Helper function to clean extracted text from PDFs
 def clean_text(text):
+    """
+    Cleans the extracted text by removing unwanted elements such as:
+    - Extra spaces, newlines, and special characters
+    - Legal disclaimers and copyright statements
+    - Unnecessary headers (e.g., "CORPORATE PARTICIPANTS")
+    """
     text = text.replace("\n", "")
     text = text.replace("..", "")
     text = re.sub(r'https?:\/\/\S+|www\.\S+', '', text)
@@ -57,7 +81,10 @@ def clean_text(text):
 
 # Function to extract ticker symbol using regular expression
 def extract_ticker(company_str):
-    # Define adjustments dictionary
+    """
+    Extracts the stock ticker symbol from the company name using regex.
+    Adjustments are made for special cases where the ticker has changed.
+    """
     adjustments_dict = {
         'GOOG': 'GOOGL',
         'NWS': 'NWSA',
@@ -100,9 +127,11 @@ def extract_ticker(company_str):
     else:
         return None
     
-# Define a function to find the most recent PDF file within a given directory.
+# Function to find the most recent PDF file for a given company
 def find_most_recent_pdf(ticker_directory):
-    
+    """
+    Searches for the latest PDF file within a specified directory and returns its path.
+    """
     # Check if the directory exists, return an empty string if it doesn't.
     if not os.path.exists(ticker_directory):
         return ""
@@ -117,8 +146,12 @@ def find_most_recent_pdf(ticker_directory):
 
 #%% Primary Data Scrape
 
+# Main function to scrape data from PDFs and structure it into a DataFrame
 def scrape_data(year):
-        
+    """
+    Iterates through the list of tickers, extracts text from PDFs, cleans it,
+    and structures the data into a DataFrame.
+    """
     transcripts = []
     transcript_df = pd.DataFrame()
     directory_path = os.path.join(base_directory, r"Data\Raw Factset PDF")

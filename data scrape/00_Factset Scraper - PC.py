@@ -9,7 +9,7 @@ Created on Thu Feb 29 10:56:06 2024
 # How To: Set the Start and End Dates to the Start of Current Year to Current Day Below. Open Factset and 
 #         go to Document Search then Filings. Click Chronological, then Sources/Call Transcripts.
 #         Minimize Search (Top) and Document Panel (Right). 
-# Input:  Start/End Dates (No leading 0s), Additional/Tickers.xlsx
+# Input:  Start/End Dates (No leading 0s), Path to save PDFs, Additional/Tickers.xlsx
 # Output: Data/Raw FactsetPDF/Ticker PDF Files
 
 #Import Libraries
