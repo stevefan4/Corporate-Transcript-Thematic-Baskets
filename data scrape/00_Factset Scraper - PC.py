@@ -9,31 +9,32 @@ Created on Thu Feb 29 10:56:06 2024
 # How To: Set the Start and End Dates to the Start of Current Year to Current Day Below. Open Factset and 
 #         go to Document Search then Filings. Click Chronological, then Sources/Call Transcripts.
 #         Minimize Search (Top) and Document Panel (Right). 
+# Input:  Start/End Dates (No leading 0s), Additional/Tickers.xlsx
 # Output: Data/Raw FactsetPDF/Ticker PDF Files
-# Input: Start/End Dates (No leading 0s), Additional/Tickers.xlsx
 
 #Import Libraries
 import numpy as np
 import pandas as pd
 import os
-import pyautogui
+import pyautogui #Python Graphic User Interface (GUI) Library
 import shutil
 import time
 
+# Define Start and End Date For Scrape (1Yr Recommended)
 start_date = "10/1/2022"
 end_date = "12/6/2024"
 
-#%%
+# Set Base directory path
+base_directory = r'S:\Strategy Research\Transcripts\Additional'
+directory_path = os.path.join(base_directory, "Tickers.xlsx")
+
+#%% Testing (Adjustments)
 
 #PyAuto GUI - Print Current Position, Move Cursor to Specific Pixel Location
 #print(pyautogui.position())
 #pix = pyautogui.pixel(1158, 139)
 
 #%% Import Tickers
-
-# Base directory path
-base_directory = r'S:\Strategy Research\Transcripts\Additional'
-directory_path = os.path.join(base_directory, "Tickers.xlsx")
 
 #Import Data
 ticker_list = pd.read_excel(directory_path)
