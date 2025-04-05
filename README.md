@@ -25,26 +25,60 @@ This project enables investors and researchers to **track how companies discuss 
 
 ---
 
-## 🏗️ **How It Works**  
+## 🏗️ **How It Works**
 
-### **📂 Step 1: Data Collection**  
-1️⃣ **Scrape Transcripts** – Extract **earnings call transcripts** from **FactSet** into PDF format.  
-2️⃣ **Convert to Structured Data** – Process PDFs into structured **Excel datasets** for analysis.  
+---
 
-### **🔍 Step 2: Thematic Mention Detection**  
-3️⃣ **Generate Thematic Vocabulary (LLM-powered)** – Automatically create a **list of relevant keywords** based on the user's theme input.  
-4️⃣ **Find Theme Mentions** – Use a **keyword-based filter** to detect sentences related to key themes.  
-5️⃣ **Remove False Positives (LLM-powered)** – Ensure that keyword hits are **truly** relevant to the theme.  
-6️⃣ **Extract Context** – Identify surrounding sentences that provide **additional context** to theme mentions.  
+### 📂 **Step 1: Data Collection**  
+1️⃣ **Scrape Transcripts** – Extract earnings call transcripts from **FactSet** in PDF format.  
+2️⃣ **Convert to Structured Data** – Parse PDFs into structured **Excel datasets** for analysis.
 
-### **🎯 Step 3: Thematic Analysis**  
-7️⃣ **Classify Themes & Subthemes (LLM-powered)** – Organize mentions into **detailed subthemes**.  
-8️⃣ **Analyze Sentiment (LLM-powered)** – Determine whether mentions are **positive, negative, or neutral**.  
+---
 
-### **📊 Step 4: Data Presentation & Visualization**  
-9️⃣ **Stock Basket Generation** – Identify companies with **high thematic engagement**.  
-🔟 **Trend & Chart Analysis** – Visualize **theme trends, sector engagement, and company size comparisons**.  
-1️⃣1️⃣ **Interactive Dashboard** – Explore data with **filters for theme, sentiment, and companies**.  
+### 🔍 **Step 2: Thematic Mention Detection**  
+3️⃣ **Generate Thematic Vocabulary (LLM-powered)** – Use an LLM to generate **keywords** based on user-defined themes.  
+4️⃣ **Find Theme Mentions** – Match keywords to sentences across transcripts.  
+5️⃣ **Remove False Positives (LLM-powered)** – Filter out irrelevant hits using LLM-based context checks.  
+6️⃣ **Extract Context** – Pull nearby sentences to provide **narrative context** around each theme hit.
+
+---
+
+### 📈 **Step 3: Stock Basket Generation**  
+7️⃣ **Create Feature Matrix**  
+- 7.1 Total keyword mentions per company  
+- 7.2 Share of mentions vs. peers  
+- 7.3 Mention momentum (QoQ/YoY)  
+- 7.4 Text embeddings from context or full transcript  
+- 7.5 Concatenate into unified feature vector per company  
+
+8️⃣ **Dimensionality Reduction (PCA)**  
+- 8.1 Normalize with `StandardScaler`  
+- 8.2 Apply PCA to reduce dimensions (e.g., to 10)  
+- 8.3 Ensure >80–90% variance explained  
+
+9️⃣ **KNN Clustering**  
+- 9.1 Set `n_clusters = 2` (Engaged vs. Not Engaged)  
+- 9.2 Run `KMeans` on PCA output  
+- 9.3 Label companies based on cluster averages  
+
+🔟 **Review Cluster Validity**  
+- 10.1 Visualize with 2D PCA scatterplot  
+- 10.2 Evaluate via silhouette score, distance metrics  
+- 10.3 Manually verify known names in each group  
+
+✅ **Output:** 🎯 *Thematic Core Basket* vs ⚪ *Background Universe*
+
+---
+
+### 🎯 **Step 4: Thematic Analysis**  
+1️⃣1️⃣ **Classify Themes & Subthemes (LLM-powered)** – Organize mentions into granular **subthemes**.  
+1️⃣2️⃣ **Analyze Sentiment (LLM-powered)** – Determine whether mentions are **positive, neutral, or negative**.
+
+---
+
+### 📊 **Step 5: Data Presentation & Visualization**  
+1️⃣3️⃣ **Trend & Chart Analysis** – Track theme trends, sector breakdowns, and company size comparisons.  
+1️⃣4️⃣ **Interactive Dashboard** – Filter by **theme, sentiment, cluster, and company** for deep-dive exploration.
 
 ---
 
