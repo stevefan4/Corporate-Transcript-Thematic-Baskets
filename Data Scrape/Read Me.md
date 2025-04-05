@@ -1,6 +1,6 @@
-# 📄 FactSet Transcript Scraper
+# 📄 Transcript Scraper
 
-This Python script automates the downloading of earnings call transcripts from the **FactSet Document Search** portal, based on a given ticker symbol.
+Factset provides a document search functionality through their application and website. This Python script automates the downloading of earnings call transcripts from the **FactSet Document Search** portal, based on a given ticker symbol.
 
 ---
 
@@ -8,20 +8,18 @@ This Python script automates the downloading of earnings call transcripts from t
 
 - Automate transcript collection from FactSet for tickers in the Russell 3000 or other indices.
 - Handle UI differences between full-screen and compact FactSet layouts.
-- Choose "Save All Documents to One File" as the download option.
 - Automatically move the resulting PDF to the correct folder based on ticker.
+- Extract unstructured text from PDFs and create a structured dataset.
 
 ---
 
-## 🚀 How It Works
+## 🚀 How To Operate
 
-1. **Opens FactSet’s Document Search** in a Microsoft Edge WebDriver session.
-2. **Inputs the ticker symbol** into the "All Identifiers" field.
-3. **Selects all results** using the top-left checkbox.
-4. **Clicks the correct download button**, handling both full-screen and compact views.
-5. **Chooses the option to save all documents as one file**.
-6. **Waits for the file to appear** in the system’s Downloads folder.
-7. **Moves the PDF to a pre-defined destination folder** named after the ticker.
+1. **Set Universe of Tickers** in an Excel to be imported. Should be Factset Tickers (pulled from constiuents) with -{country}.
+2. **Set Parameters** like date range and email. 
+3. **Open FactSet’s Document Search** either automatically in a Microsoft Edge WebDriver session or using the platform.
+4. **Loops over ticker symbols** and downloads into destination folder
+5. **Extract Text** from PDFs and move to an Excel where each row corresponds w/ a transcript for further analysis
 
 ---
 
@@ -30,7 +28,7 @@ This Python script automates the downloading of earnings call transcripts from t
 - Windows OS
 - [Microsoft Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
 - `selenium` Python library
-- Access to [FactSet](https://www.factset.com/) with login permissions
+- Access to [FactSet](https://www.factset.com/) or application with login permissions
 
 Install the dependencies:
 
@@ -43,9 +41,22 @@ pip install selenium
 ## 📂 Folder Structure
 
 ```
-/Raw Factset PDF/
-    └── TICKER/
-          └── TICKER_Timestamp.pdf
+/Transcripts
+    └── Additional/
+          └── Tickers.xlsx
+          └── All_Tickers.xlsx
+    └── Data/
+        └── Excel/
+        └── Raw Factset PDF/
+            └── NVDA/
+            └── MSFT/
+            └── ETC/
+    └── Python/
+          └── Data Scrape/
+              └── 00_Factset Scraper - PC.py
+              └── 00_Factset Scraper - Web.py
+              └── 01_PDF Scraper.py
+
 ```
 
 For example:
