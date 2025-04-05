@@ -1,6 +1,6 @@
 # 📄 Transcript Scraper
 
-Factset provides a document search functionality through their application and website. This Python script automates the downloading of earnings call transcripts from the **FactSet Document Search** portal, based on a given ticker symbol.
+Factset provides a document search functionality through their application and website. This Python script automates the downloading of earnings call transcripts from the **FactSet Document Search** portal, based on a given ticker symbol. Then converts the downloaded pdfs into a structured dataset. 
 
 ---
 
@@ -27,14 +27,7 @@ Factset provides a document search functionality through their application and w
 
 - Windows OS
 - [Microsoft Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
-- `selenium` Python library
 - Access to [FactSet](https://www.factset.com/) or application with login permissions
-
-Install the dependencies:
-
-```bash
-pip install selenium
-```
 
 ---
 
@@ -63,27 +56,6 @@ For example:
 ```
 S:\Strategy Research\Transcripts\Data\Raw Factset PDF\AAPL\AAPL_20250401_153022.pdf
 ```
-
----
-
-## 🧪 How to Use
-
-1. Clone this repository.
-2. Open `00_Factset Scraper - Web.py`.
-3. Replace the `email` variable and `ticker` list with your details.
-4. Run the script.
-
-```python
-# Example loop
-tickers = ["AAPL-US", "MSFT-US", "GOOGL-US"]
-for t in tickers:
-    download_ticker_pdf(t)
-```
-
-The script will:
-- Navigate FactSet,
-- Download the transcript,
-- And move it to the appropriate folder.
 
 ---
 
