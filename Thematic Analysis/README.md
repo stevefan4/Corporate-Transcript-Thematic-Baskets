@@ -78,27 +78,6 @@ Output:
 
 This contextual sentiment analysis captures nuances like optimism despite challenges, concern despite progress, or neutral corporate-speak hiding caution.
 
----
-
-## 🖼️ Visual Outputs
-
-Designed for insight, not just output. The module includes tools to visualize key patterns in subtheme and sentiment dynamics:
-
-### 📊 Subtheme Frequency Over Time
-See how corporate attention shifts within a theme. For example:
-- “GenAI Tools” may peak in Q2, while “AI Chips” dominate in Q4
-
-### 🎭 Sentiment Trends Across Companies or Sectors
-Spot macro- or micro-level mood swings:
-- Are Tech firms more optimistic about AI than Industrials?
-- Did sentiment around “Supply Chains” improve post-COVID?
-
-### 🧩 Theme x Subtheme Matrices
-Map the full landscape:
-- What’s being said most about “Tariffs”? Is it "Cost Pressure" or "Geopolitical Risk"?
-- Visualize the intersection of themes, subthemes, and tone in a single glance.
-
-These visualizations are built to plug directly into your dashboarding tools (e.g., Power BI, Streamlit, or custom Python plots).
 
 ---
 
