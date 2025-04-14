@@ -9,6 +9,8 @@ This project enables investors and researchers to **track how companies discuss 
 
 ## 🚀 **Key Features**  
 
+✅ **Data Aggregation** – Scrape **Factsets** for Corporate Transcipt PDFs and Create A Structured Dataset. 
+
 ✅ **Thematic Mention Identification** – Scrape **corporate transcripts** for mentions of a particular theme. 
 
 ✅ **Stock Basket Creation** – Build **custom stock baskets** based on company engagement with themes.
